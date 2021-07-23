@@ -12,8 +12,8 @@ import rootSaga from './sagas';
 // import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/https://rem.dbwebb.se/api';
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'https://rem-rest-api.herokuapp.com/api';
 
 const sagaMiddleware = createSagaMiddleware();
 

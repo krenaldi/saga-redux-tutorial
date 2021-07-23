@@ -1,11 +1,11 @@
-import { call, fork, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, fork, put, takeEvery } from 'redux-saga/effects';
 import * as actions from '../actions/users-actions';
 import * as api from '../api/users';
 
 function* getUsers(){
     try {
         const result = yield call(api.getUsers);
-        // console.log(result);
+        console.log(result);
         yield put(actions.getUsersSuccess({
             items: result.data.data
         }))
@@ -16,7 +16,7 @@ function* getUsers(){
 
 
 function* watchGetUsersRequest() {
-    yield takeLatest(actions.Types.GET_USERS_REQUEST, getUsers);
+    yield takeEvery(actions.Types.GET_USERS_REQUEST, getUsers);
 }
 
 const usersSagas = [
